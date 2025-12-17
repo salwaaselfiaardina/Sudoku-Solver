@@ -71,15 +71,24 @@ void printGrid(int grid[N][N]) {
 }
 
 int main() {
-    int grid[N][N];
+    char ulang;
 
-    cout << "Masukkan Sudoku (9 baris, tiap baris 9 angka, gunakan  0 untuk sel kosong): ";
+    do {
+    int grid[N][N];
+    cout << "======================= SOLVER SUDOKU =======================\n\n";
+
+    cout << "Cara penggunaan:\n";
+    cout << "1. Masukkan 9 baris angka, tiap baris terdiri dari 9 angka. \n";
+    cout << "2. Gunakan angka 0 untuk sel yang kosong.\n";
+    cout << "3. Gunakan spasi untuk memisahkan angka.\n";
+    cout << "Contoh input untuk satu baris: 5 3 0 0 7 0 0 0 0\n\n";
+    cout << "==============================================================\n";
+    cout << "Masukkan Sudoku: \n";
 
     for (int i = 0; i < N; i++) {
         cout << "Baris " << i+1 << ": ";
         for (int j = 0; j < N; j++) {
             cin >> grid[i][j];
-
             fixedCell[i][j] = (grid[i][j] != 0);
         }
     }
@@ -90,5 +99,11 @@ int main() {
         cout << "Tidak ada solusi!\n";
     }
 
+    cout << "\nApakah kamu ingin mencoba lagi? (y/n): ";
+    cin >> ulang;
+    cout << endl;
+} while (ulang == 'y' || ulang == 'Y');
+
+cout << "Terima kasih telah menggunakan Solver Sudoku!\n";
     return 0;
 }
